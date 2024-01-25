@@ -19,7 +19,10 @@ func main() {
 
 	//loop for in loop for
 	cards := newDeck()
-	cards.printAllCards()
+	// cards.printAllCards()
+	hand, remainingCards := deal(cards, 5)
+	hand.printAllCards()
+	remainingCards.printAllCards()
 }
 
 // func setCardName() string {
