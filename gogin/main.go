@@ -10,7 +10,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// initial student data
+// Initial student data
 var students = []model.Student{
 	{Id: 1, Firstname: "Harry", Lastname: "Potter", Age: 20},
 	{Id: 2, Firstname: "Tomas", Lastname: "Sheldon", Age: 18},
@@ -20,7 +20,7 @@ var students = []model.Student{
 func main() {
 	r := gin.New()
 
-	//call services
+	// Call services
 	r.GET("/student", listStudentsHandler)
 	r.POST("/student", createStudentsHandler)
 	r.DELETE("/student/:id", deleteStudentHandler)
