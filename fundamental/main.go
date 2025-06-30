@@ -26,9 +26,10 @@ func printFullName(age int, name string) {
 
 func isPalindrome(text string) bool {
 	cleanText := strings.ToLower(strings.ReplaceAll(text, " ", ""))
+	runes := []rune(cleanText)
 	length := len(cleanText)
 	for i := 0; i < length/2; i++ {
-		if cleanText[i] != cleanText[length-1-i] {
+		if runes[i] != runes[length-1-i] {
 			return false
 		}
 	}
@@ -36,18 +37,19 @@ func isPalindrome(text string) bool {
 }
 
 func reversedString(text string) string {
-	var reversedString string
-	for i := len(text); i > 0; i-- {
-		reversedString += string(text[i-1])
+	runes := []rune(text)
+	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
 	}
-	return reversedString
+	return string(runes)
 }
 
 func countVowels(text string) int {
 	var count int = 0
 	lowerText := strings.ToLower(text)
-	for i := 0; i < len(lowerText); i++ {
-		switch lowerText[i] {
+	runes := []rune(lowerText)
+	for i := 0; i < len(runes); i++ {
+		switch runes[i] {
 		case 'a', 'e', 'i', 'o', 'u':
 			count++
 		}
