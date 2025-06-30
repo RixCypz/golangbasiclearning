@@ -17,6 +17,7 @@ func main() {
 	}
 
 	fmt.Printf("The reversed string of %s is %s\n", name, reversedString(name))
+	fmt.Printf("The vowels count is %d", countVowels(name))
 }
 
 func printFullName(age int, name string) {
@@ -40,4 +41,16 @@ func reversedString(text string) string {
 		reversedString += string(text[i-1])
 	}
 	return reversedString
+}
+
+func countVowels(text string) int {
+	var count int = 0
+	lowerText := strings.ToLower(text)
+	for i := 0; i < len(lowerText); i++ {
+		switch lowerText[i] {
+		case 'a', 'e', 'i', 'o', 'u':
+			count++
+		}
+	}
+	return count
 }
