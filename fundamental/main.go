@@ -6,15 +6,17 @@ import (
 )
 
 func main() {
-	var name string = "Go lang"
+	var name string = "Hannah"
 	age := 10
 	printFullName(age, name)
 	fmt.Println()
-	if isPalindrome("bab") {
-		fmt.Printf("Is palindrome")
+	if isPalindrome(name) {
+		fmt.Printf("Is palindrome\n")
 	} else {
-		fmt.Printf("Not palindrome")
+		fmt.Printf("Not palindrome\n")
 	}
+
+	fmt.Printf("The reversed string of %s is %s\n", name, reversedString(name))
 }
 
 func printFullName(age int, name string) {
@@ -30,4 +32,12 @@ func isPalindrome(text string) bool {
 		}
 	}
 	return true
+}
+
+func reversedString(text string) string {
+	var reversedString string
+	for i := len(text); i > 0; i-- {
+		reversedString += string(text[i-1])
+	}
+	return reversedString
 }
