@@ -27,7 +27,7 @@ func printFullName(age int, name string) {
 func isPalindrome(text string) bool {
 	cleanText := strings.ToLower(strings.ReplaceAll(text, " ", ""))
 	runes := []rune(cleanText)
-	length := len(cleanText)
+	length := len(runes)
 	for i := 0; i < length/2; i++ {
 		if runes[i] != runes[length-1-i] {
 			return false
